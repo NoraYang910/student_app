@@ -12,12 +12,22 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.UUID;
 
 @RestController
 @RequestMapping("/file")
 public class FileController {
-    String path = "C:\\Users\\yangming3\\Desktop\\images\\";
+    String path = "";
+//    String path = "/students/images/";
+
+    public FileController(){
+        String currentDirectory = System.getProperty("user.dir");
+        String relativePath = currentDirectory + "\\students\\images\\";
+        path = relativePath;
+    }
+
     @PostMapping("/upload")
     public Result upload(MultipartFile file){
         String originalFilename = file.getOriginalFilename();
@@ -26,7 +36,8 @@ public class FileController {
         try{
             file.transferTo(new File(path+fileName));
         }catch (Exception e){
-           e.printStackTrace();
+//           e.printStackTrace();
+            System.out.println("file not found");
         }
         return Result.success(fileName);
     }
@@ -34,9 +45,11 @@ public class FileController {
     public void download(String name, HttpServletResponse response){
         System.out.println("start downloading");
         System.out.println(name);
+        System.out.println("path1:"+path+name);
         try {
             //read file
             FileInputStream in = new FileInputStream(path+name);
+
             //write file to browser
             ServletOutputStream out = response.getOutputStream();
             response.setContentType("image/jpeg");
@@ -49,7 +62,8 @@ public class FileController {
             in.close();
             out.close();
         } catch (Exception e) {
-            e.printStackTrace();
+//            e.printStackTrace();
+            System.out.println("file not found");
         }
     }
 }

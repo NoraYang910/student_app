@@ -17,7 +17,7 @@ export default {
       <i class="el-icon-menu"></i><span>Courses</span>
     </el-menu-item>
     <el-menu-item index="/MessageBox">
-      <i class="el-icon-message"></i><span>MessageBox</span>
+      <i class="el-icon-message"></i><span>MailBox</span>
     </el-menu-item>
     <el-submenu index="4">
       <template slot="title"><i class="el-icon-medal"></i>Competitions</template>
