@@ -20,7 +20,6 @@ import java.util.UUID;
 @RequestMapping("/file")
 public class FileController {
     String path = "";
-//    String path = "/students/images/";
 
     public FileController(){
         String currentDirectory = System.getProperty("user.dir");

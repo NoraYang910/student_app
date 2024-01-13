@@ -1,54 +1,54 @@
 <template>
   <div id="course">
-          <el-button @click="showAddCourse" style="margin-bottom: 5px">add course</el-button>
-          <div>
-            <el-input v-model="name" placeholder="query by name" suffix-icon="el-icon-search" style="width: 200px;"
-                      @keyup.enter.native="getCourses"></el-input>
-            <el-button  style="margin-left: 5px;" size="small" @click="getCourses">search</el-button>
-            <el-button size="small" @click="resetParam">reset</el-button>
-          </div>
-          <div>
-          <el-table :data="tableData" style="height: 100%" class="table_info">
-            <el-table-column label="No" type="index" width="50"></el-table-column>
-<!--            <el-table-column prop="id" label="id" width="50">-->
-<!--            </el-table-column>-->
-            <el-table-column prop="name" label="Name" width="120">
-            </el-table-column>
-            <el-table-column prop="imageUrl" label="Image" width="120">
-              <template slot-scope="scope">
-                <img v-if="scope.row.imageUrl" :src="getImageUrl(scope.row.imageUrl)" alt="Image" style="width: 100px; height: 100px;">
-                <span v-else>No Image</span>
-              </template>
-            </el-table-column>
-            <el-table-column prop="lecturer" label="Lecturer" width="150">
-            </el-table-column>
-            <el-table-column prop="description" label="Description" width="400">
-            </el-table-column>
-            <el-table-column label="Manage">
-              <template slot-scope="scope">
-              <el-button @click="showEditCourse(scope.row)" size="small">Edit</el-button>
-                <el-popconfirm
-                    title="Are you sure to delete this?"
-                    confirm-button-text='Yes'
-                    cancel-button-text='No'
-                    @confirm="deleteCourse(scope.row.id)"
-                >
-                  <el-button slot="reference" size="small" style="margin-left: 5px">Delete</el-button>
-                </el-popconfirm>
-              </template>
-            </el-table-column>
-          </el-table>
-            <el-pagination
-                @size-change="handleSizeChange"
-                @current-change="handleCurrentChange"
-                :current-page.sync="pageNum"
-                :page-sizes="[2, 4, 6, 8]"
-                :page-size="pageSize"
-                layout="total, sizes, prev, pager, next, jumper"
-                :total="total"
+    <el-button @click="showAddCourse" style="margin-bottom: 5px">add course</el-button>
+    <div>
+      <el-input v-model="name" placeholder="query by name" suffix-icon="el-icon-search" style="width: 200px;"
+                @keyup.enter.native="getCourses"></el-input>
+      <el-button  style="margin-left: 5px;" size="small" @click="getCourses">search</el-button>
+      <el-button size="small" @click="resetParam">reset</el-button>
+    </div>
+    <div>
+      <el-table :data="tableData" style="height: 100%" class="table_info">
+        <el-table-column label="No" type="index" width="50"></el-table-column>
+        <!--            <el-table-column prop="id" label="id" width="50">-->
+        <!--            </el-table-column>-->
+        <el-table-column prop="name" label="Name" width="120">
+        </el-table-column>
+        <el-table-column prop="imageUrl" label="Image" width="120">
+          <template slot-scope="scope">
+            <img v-if="scope.row.imageUrl" :src="getImageUrl(scope.row.imageUrl)" alt="Image" style="width: 100px; height: 100px;">
+            <span v-else>No Image</span>
+          </template>
+        </el-table-column>
+        <el-table-column prop="lecturer" label="Lecturer" width="150">
+        </el-table-column>
+        <el-table-column prop="description" label="Description" width="400">
+        </el-table-column>
+        <el-table-column label="Manage">
+          <template slot-scope="scope">
+            <el-button @click="showEditCourse(scope.row)" size="small">Edit</el-button>
+            <el-popconfirm
+                title="Are you sure to delete this?"
+                confirm-button-text='Yes'
+                cancel-button-text='No'
+                @confirm="deleteCourse(scope.row.id)"
             >
-            </el-pagination>
-          </div>
+              <el-button slot="reference" size="small" style="margin-left: 5px">Delete</el-button>
+            </el-popconfirm>
+          </template>
+        </el-table-column>
+      </el-table>
+      <el-pagination
+          @size-change="handleSizeChange"
+          @current-change="handleCurrentChange"
+          :current-page.sync="pageNum"
+          :page-sizes="[2, 4, 6, 8]"
+          :page-size="pageSize"
+          layout="total, sizes, prev, pager, next, jumper"
+          :total="total"
+      >
+      </el-pagination>
+    </div>
 
     <el-dialog
         :visible.sync="centerDialogVisible"
@@ -59,14 +59,14 @@
           <el-input v-model="form.name"></el-input>
         </el-form-item>
         <el-form-item label="lecturer" prop="lecturer" >
-            <el-select v-model="form.lecturer" placeholder="Select lecturer">
-              <el-option
-                  v-for="teacher in this.teachers"
-                  :key="teacher.name"
-                  :label="teacher.name"
-                  :value="teacher.name"
-              ></el-option>
-            </el-select>
+          <el-select v-model="form.lecturer" placeholder="Select lecturer">
+            <el-option
+                v-for="teacher in this.teachers"
+                :key="teacher.name"
+                :label="teacher.name"
+                :value="teacher.name"
+            ></el-option>
+          </el-select>
         </el-form-item>
         <el-form-item label="description" prop="description">
           <el-input type="textarea" :rows="3" v-model="form.description"></el-input>
@@ -143,10 +143,10 @@ export default {
     },
     getImageUrl(imageUrl){
       if(imageUrl){
-      return this.downloadUrl() + `?name=${imageUrl}`;}
+        return this.downloadUrl() + `?name=${imageUrl}`;}
     },
- // eslint-disable-next-line
-  handleAvatarSuccess (response, file, fileList) {
+    // eslint-disable-next-line
+    handleAvatarSuccess (response, file, fileList) {
       // this.download = `${this.downloadUrl()}?name=${response.data}`;
       this.form.imageUrl = response.data;
     },
@@ -315,8 +315,6 @@ export default {
         ]
       }
     }
-    }
+  }
 };
 </script>
-
-
