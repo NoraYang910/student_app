@@ -1,4 +1,4 @@
-# Course and email managment
+# Course and Email Management
 The technologies used include Vue.js, JavaScript, Axios, ElementUI, Spring Boot, Java, Maven, MyBatisPlus, MySQL, and Node.js.
 The system includes a User Profile Section to display the personal information and avatar of each user logged in, Course Management with pagination and actions like add, delete, edit, and search, and an Email System with categorization, viewing, reading, marking as read/unread, deleting, and recovering emails.
 
