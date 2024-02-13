@@ -7,4 +7,6 @@ video: https://youtu.be/8iyi1gM8YxY
 ![login](https://github.com/NoraYang910/student_app/blob/master/login.jpg)
 ![home](https://github.com/NoraYang910/student_app/blob/master/home.jpg)
 ![course](https://github.com/NoraYang910/student_app/blob/master/course.jpg)
+![addCourse](https://github.com/NoraYang910/student_app/blob/master/addCourse.jpg)
+![editCourse](https://github.com/NoraYang910/student_app/blob/master/editCourse.jpg)
 ![email](https://github.com/NoraYang910/student_app/blob/master/email.jpg)
