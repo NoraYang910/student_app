@@ -10,3 +10,4 @@ video: https://youtu.be/8iyi1gM8YxY
 ![addCourse](https://github.com/NoraYang910/student_app/blob/master/addCourse.jpg)
 ![editCourse](https://github.com/NoraYang910/student_app/blob/master/editCourse.jpg)
 ![email](https://github.com/NoraYang910/student_app/blob/master/email.jpg)
+![detailEmail](https://github.com/NoraYang910/student_app/blob/master/detailEmail.jpg)
